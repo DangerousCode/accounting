@@ -12,7 +12,7 @@ public class CalculadoraServiceImpl implements ICalculadoraService {
     public Integer doSum(Integer a, Integer b) {
     	
     	Consumer consumer = new Consumer();
-    	Integer salida = consumer.multiplicacion(a, b);
+    	Integer salida = consumer.multiplication(a, b);
     	
         return salida;
     }
@@ -21,16 +21,16 @@ public class CalculadoraServiceImpl implements ICalculadoraService {
     public Integer doSubtraction(Integer a, Integer b) {
     	
     	Consumer consumer = new Consumer();
-    	Integer salida = consumer.multiplicacion(a, b);
+    	Integer salida = consumer.multiplication(a, b);
     	
         return salida;
     }
 	
     @Override
-    public Integer doMultiply(Integer a, Integer b) {
+    public Integer doMultiplication(Integer a, Integer b) {
     	
     	Consumer consumer = new Consumer();
-    	Integer salida = consumer.multiplicacion(a, b);
+    	Integer salida = consumer.multiplication(a, b);
     	
         return salida;
     }
@@ -39,7 +39,7 @@ public class CalculadoraServiceImpl implements ICalculadoraService {
     public Integer doDivide(Integer a, Integer b) {
     	
     	Consumer consumer = new Consumer();
-    	Integer salida = consumer.multiplicacion(a, b);
+    	Integer salida = consumer.multiplication(a, b);
     	
         return salida;
     }    

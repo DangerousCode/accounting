@@ -24,7 +24,7 @@ public class Consumer {
 		return respuesta;
 	}
 	
-	public int multiplicacion(int one, int two) {
+	public int multiplication(int one, int two) {
 		
 		int respuesta = 0;
 		
