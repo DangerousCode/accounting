@@ -1,4 +1,4 @@
-package com.ust.calc.calculadora.app;
+package com.ust.calc.calculadora;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
