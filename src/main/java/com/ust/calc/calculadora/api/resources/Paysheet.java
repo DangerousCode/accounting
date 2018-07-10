@@ -1,7 +1,9 @@
 package com.ust.calc.calculadora.api.resources;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
@@ -10,10 +12,12 @@ import java.math.BigDecimal;
  */
 @Builder
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Paysheet {
 
     private String id;
     private BigDecimal salary;
-    private String EmployeeId;
+    private String employeeId;
 
 }
