@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ust.calc.calculadora.services.ICalculadoraService;
 
-@RestController
+@Deprecated
+//@RestController
 @EnableFeignClients
 public class CalculadoraController implements Calculadora {
 
