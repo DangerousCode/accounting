@@ -1,8 +1,13 @@
 package com.ust.calc.calculadora.clients;
 
-public class CalculadoraSumaClient {
+import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-	public Integer suma(Integer sumando1, Integer sumando2) {
-		return 0;
-	}
+@FeignClient(name="sumClient", url="http://localhost:8086")
+public interface CalculadoraSumaClient {
+
+	@RequestMapping(method = RequestMethod.GET, value = "/suma/{uno}/{dos}")
+	public Integer suma(@PathVariable(name="uno") Integer uno, @PathVariable(name="dos") Integer dos);
 }

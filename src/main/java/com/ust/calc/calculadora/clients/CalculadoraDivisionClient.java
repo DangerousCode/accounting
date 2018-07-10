@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@FeignClient("http://localhost:8084")
+@FeignClient(name="divisionClient", url="http://localhost:8084")
 public interface CalculadoraDivisionClient {
 
 	@RequestMapping(method = RequestMethod.GET, value = "/division/{a}/{b}")
