@@ -17,7 +17,16 @@ public class CalculadoraController implements Calculadora {
     
     @Override
     @RequestMapping("/calculo")
-	public Integer doCalculos(@RequestParam(value="one") Integer one, @RequestParam(value="two") Integer two) {
-		return calculadoraService.doMultiplication(one, two);
+	public Integer doCalculos(@RequestParam(value="one") Integer one, 
+			@RequestParam(value="two") Integer two,
+			@RequestParam(value="three") Integer three,
+			@RequestParam(value="four") Integer four) {
+    	
+    	Integer salida = 0; 
+		salida = calculadoraService.doMultiplication(one, two);
+		salida = calculadoraService.doMultiplication(salida, three);
+		salida = calculadoraService.doMultiplication(salida, four);
+		return salida;
+		
 	}
 }
