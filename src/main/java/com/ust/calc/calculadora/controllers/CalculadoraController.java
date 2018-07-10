@@ -1,5 +1,6 @@
 package com.ust.calc.calculadora.controllers;
 
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ust.calc.calculadora.services.ICalculadoraService;
 
 @RestController
+@EnableFeignClients
 public class CalculadoraController implements Calculadora {
 
 	private final ICalculadoraService calculadoraService;
