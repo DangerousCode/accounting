@@ -2,9 +2,7 @@ package com.ust.calc.calculadora.repository;
 
 import java.util.Optional;
 
-@Deprecated
-public interface EmployeeRepository<ID, T> {
+public interface FinderComponent<T, ID> {
 
     Optional<T> findById(ID id);
-
 }

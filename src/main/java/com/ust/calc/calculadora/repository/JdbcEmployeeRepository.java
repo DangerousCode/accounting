@@ -12,7 +12,7 @@ import java.util.Optional;
 @Slf4j
 @Repository
 @Deprecated
-public class JdbcEmployeeRepository implements EmployeeRepository<String, Employee> {
+public class JdbcEmployeeRepository implements CrudRepository<Employee, String> {
 
     @Override
     public Optional<Employee> findById(final String id) {
@@ -20,6 +20,11 @@ public class JdbcEmployeeRepository implements EmployeeRepository<String, Employ
         return Optional.of(Employee.builder()
             .position(2)
             .build());
+    }
+
+    @Override
+    public <S extends Employee> S save(S entity) {
+        return null;
     }
 
 }
