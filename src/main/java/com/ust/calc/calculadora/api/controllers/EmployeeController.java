@@ -1,25 +1,18 @@
 package com.ust.calc.calculadora.api.controllers;
 
+import com.ust.calc.calculadora.api.resources.Employee;
 import com.ust.calc.calculadora.api.resources.Paysheet;
-import com.ust.calc.calculadora.services.Payroll;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
-@Api(value = "/paysheet", description = "paysheet API")
 @RestController
-@RequiredArgsConstructor
-public class PaysheetController implements PaysheetAPI {
-
-    private final Payroll<Paysheet, Paysheet> payrollService;
+public class EmployeeController implements EmployeeAPI {
 
     @ApiOperation(value = "create a paysheet resource",
         response = Paysheet.class,
@@ -29,10 +22,10 @@ public class PaysheetController implements PaysheetAPI {
     @ApiResponses({
         @ApiResponse(code = 200, message = "create a paysheet resource")
     })
-    @PostMapping(path = "/paysheet")
     @Override
-    public ResponseEntity<Paysheet> createPaysheet(final @RequestBody Paysheet paysheet) {
-        return ResponseEntity.ok(payrollService.generatePayroll(paysheet));
+    @PostMapping(path = "/employee")
+    public ResponseEntity<Employee> createEmployee(@RequestBody final Employee employee) {
+        return ResponseEntity.ok(Employee.builder().build());
     }
 
 }

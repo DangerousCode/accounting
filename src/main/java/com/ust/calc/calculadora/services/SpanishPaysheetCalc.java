@@ -3,6 +3,7 @@ package com.ust.calc.calculadora.services;
 import com.ust.calc.calculadora.api.resources.Employee;
 import com.ust.calc.calculadora.clients.CalculadoraMultiplicacionClient;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -12,6 +13,7 @@ import java.math.BigDecimal;
  */
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class SpanishPaysheetCalc implements PaysheetCalc<Employee> {
 
     public static final int SUELDO_BASE = 1000;
@@ -20,7 +22,9 @@ public class SpanishPaysheetCalc implements PaysheetCalc<Employee> {
 
     @Override
     public BigDecimal calulation(final Employee employee) {
-        return BigDecimal.valueOf(multiplicacionClient.multiply(employee.getPosition(), SUELDO_BASE));
+        final Integer multiply = multiplicacionClient.multiply(employee.getPosition(), SUELDO_BASE);
+        log.info("multiply:{}", multiply);
+        return BigDecimal.valueOf(multiply);
     }
 
 }
