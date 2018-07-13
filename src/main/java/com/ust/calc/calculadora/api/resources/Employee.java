@@ -12,12 +12,13 @@ import java.util.List;
 @Builder
 public class Employee {
 
-    private String nombre;
-    private String direccion;
+    private String name;
+    private String address;
+    private String email;
     private String dni;
-    private String fechaNacimiento;
-    private String telefono;
-    private String sexo;
+    private String birthDate;
+    private String phoneNumber;
+    private String sex;
     private String id;
     private Contract contract;
 
