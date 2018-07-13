@@ -37,11 +37,12 @@ public class EmployeeCreationTest {
     }
 
     @Test
-    public void calulation() {
-    	final EmployeeDS output = new EmployeeDS("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
-        when(employeeCreationWSClient.createEmployee(employee)).thenReturn(output);
-        output = employeeCreationService.createEmployee(employee);
-        assertThat(output).isNotNull();
+    public void testEmployeeCreation() {
+    	final Employee outputService = new Employee();
+    	final EmployeeDS outputClientCall = new EmployeeDS();
+        when(employeeCreationWSClient.createEmployee(employee)).thenReturn(outputClientCall);
+        outputService = employeeCreationService.createEmployee(employee);
+        assertThat(outputService).isNotNull();
     }
 
 }

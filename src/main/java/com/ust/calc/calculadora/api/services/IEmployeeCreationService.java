@@ -5,6 +5,6 @@ import com.ust.calc.calculadora.clients.entity.EmployeeDS;
 
 public interface IEmployeeCreationService {
 
-	EmployeeDS createEmployee(Employee employee);
+	Employee createEmployee(Employee employee);
 
 }

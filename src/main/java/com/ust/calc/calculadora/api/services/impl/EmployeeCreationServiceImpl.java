@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 public class EmployeeCreationServiceImpl implements IEmployeeCreationService {
 
 	@Override
-	public EmployeeDS createEmployee(Employee employee) {
+	public Employee createEmployee(Employee employee) {
 		return null;
 	}
 
