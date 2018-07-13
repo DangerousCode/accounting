@@ -1,7 +1,11 @@
-package com.ust.calc.calculadora.employee.services;
+package com.ust.calc.calculadora.api.services;
 
 import com.ust.calc.calculadora.api.resources.Employee;
+import com.ust.calc.calculadora.api.services.IEmployeeCreationService;
 import com.ust.calc.calculadora.clients.CalculadoraMultiplicacionClient;
+import com.ust.calc.calculadora.employee.consumers.EmployeeCreationWSClient;
+import com.ust.calc.calculadora.employee.services.impl.EmployeeCreationServiceImpl;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,17 +27,18 @@ public class EmployeeCreationTest {
     Employee employee;
 
     private @Mock
-    CalculadoraMultiplicacionClient multiplicacionClient;
+    EmployeeCreationWSClient employeeCreationWSClient;
 
     @Before
     public void setUp() {
-        employeeCreationService = new EmployeeCreationServiceImpl(multiplicacionClient);
+        employeeCreationService = new EmployeeCreationServiceImpl(employeeCreationWSClient);
+        employee = new Employee();
     }
 
     @Test
     public void calulation() {
-        when(multiplicacionClient.multiply(anyInt(), anyInt())).thenReturn(10);
-        final BigDecimal amount = spanishPaysheetCalc.calulation(employee);
+        when(employeeCreationWSClient.createEmployee(employee)).thenReturn(10);
+        final BigDecimal amount = employeeCreationService.createEmployee(employee);
         assertThat(amount).isEqualTo(BigDecimal.TEN);
     }
 
