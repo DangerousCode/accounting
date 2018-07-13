@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ust.calc.calculadora.clients.entity.EmployeeDS;
 
-@FeignClient(name="${feign.client.name}", url="${feign.client.url}")
+@FeignClient(name="xxx", url="http://localhost:8080/")
 public interface DataSourceClient {
 
-	@RequestMapping(method = RequestMethod.POST, consumes="application/json",produces="application/json")
-	public ResponseEntity<EmployeeDS> newEmployee(final @RequestBody EmployeeDS employeeDS);
+	@RequestMapping(method = RequestMethod.POST, path="data")
+	public ResponseEntity<EmployeeDS> newEmployee(EmployeeDS employeeDS);
 	
 }
