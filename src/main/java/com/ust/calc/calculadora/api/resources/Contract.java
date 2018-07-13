@@ -1,9 +1,11 @@
 package com.ust.calc.calculadora.api.resources;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
+@AllArgsConstructor
 @Builder
 public class Contract {
 
