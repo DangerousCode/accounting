@@ -3,6 +3,7 @@ package com.ust.calc.calculadora.api.services;
 import com.ust.calc.calculadora.api.resources.Employee;
 import com.ust.calc.calculadora.api.services.IEmployeeCreationService;
 import com.ust.calc.calculadora.clients.CalculadoraMultiplicacionClient;
+import com.ust.calc.calculadora.clients.entity.EmployeeDS;
 import com.ust.calc.calculadora.employee.consumers.EmployeeCreationWSClient;
 import com.ust.calc.calculadora.employee.services.impl.EmployeeCreationServiceImpl;
 
@@ -27,7 +28,7 @@ public class EmployeeCreationTest {
     Employee employee;
 
     private @Mock
-    EmployeeCreationWSClient employeeCreationWSClient;
+    DataSourceClient employeeCreationWSClient;
 
     @Before
     public void setUp() {
@@ -37,9 +38,10 @@ public class EmployeeCreationTest {
 
     @Test
     public void calulation() {
-        when(employeeCreationWSClient.createEmployee(employee)).thenReturn(10);
-        final BigDecimal amount = employeeCreationService.createEmployee(employee);
-        assertThat(amount).isEqualTo(BigDecimal.TEN);
+    	final EmployeeDS output = new EmployeeDS("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        when(employeeCreationWSClient.createEmployee(employee)).thenReturn(output);
+        output = employeeCreationService.createEmployee(employee);
+        assertThat(output).isNotNull();
     }
 
 }

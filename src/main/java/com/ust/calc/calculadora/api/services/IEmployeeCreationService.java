@@ -1,11 +1,10 @@
 package com.ust.calc.calculadora.api.services;
 
-import java.math.BigDecimal;
-
 import com.ust.calc.calculadora.api.resources.Employee;
+import com.ust.calc.calculadora.clients.entity.EmployeeDS;
 
 public interface IEmployeeCreationService {
 
-	BigDecimal createEmployee(Employee employee);
+	EmployeeDS createEmployee(Employee employee);
 
 }
