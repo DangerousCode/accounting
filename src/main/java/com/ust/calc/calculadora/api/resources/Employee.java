@@ -2,6 +2,8 @@ package com.ust.calc.calculadora.api.resources;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -9,7 +11,9 @@ import java.util.List;
  * Representation of Employee
  */
 @Getter
-@Builder
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Employee {
 
     private String name;

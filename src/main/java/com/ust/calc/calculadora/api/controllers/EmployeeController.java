@@ -1,17 +1,16 @@
 package com.ust.calc.calculadora.api.controllers;
 
-import java.net.URI;
-
 import org.apache.commons.lang.StringUtils;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.ust.calc.calculadora.api.resources.Employee;
 import com.ust.calc.calculadora.api.resources.Paysheet;
+import com.ust.calc.calculadora.api.services.IEmployeeCreationService;
 import com.ust.calc.calculadora.exception.ValidationException;
 
 import io.swagger.annotations.ApiOperation;
@@ -21,20 +20,23 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 public class EmployeeController implements EmployeeAPI {
 
+	
+	private final IEmployeeCreationService employeeCreationService;
+	
+	public EmployeeController(IEmployeeCreationService employeeCreationService) {
+		this.employeeCreationService = employeeCreationService;
+	}
+	
 	@ApiOperation(value = "create a paysheet resource", response = Paysheet.class, nickname = "createPaysheet", httpMethod = "POST", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ApiResponses({ @ApiResponse(code = 200, message = "create a paysheet resource") })
 	@Override
 	@PostMapping(path = "/employee")
 	public ResponseEntity<Employee> createEmployee(@RequestBody final Employee employee) {
-		// return ResponseEntity.ok(Empleado.builder().build());
-
+	
 		validateEmployee(employee);
+		Employee createEmployee = employeeCreationService.createEmployee(employee);
+		return new ResponseEntity<Employee>(createEmployee, HttpStatus.CREATED);
 
-		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(1).toUri();
-
-		return ResponseEntity.created(location).build();
-
-		// return null;
 	}
 
 	public void validateEmployee(Employee employee) {
