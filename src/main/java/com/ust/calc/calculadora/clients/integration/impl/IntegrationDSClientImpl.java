@@ -10,7 +10,11 @@ import com.ust.calc.calculadora.clients.integration.IntegrationDSClient;
 @Service
 public class IntegrationDSClientImpl implements IntegrationDSClient {
 
-	private DataSourceClient dataSourceClient;
+	private final DataSourceClient dataSourceClient;
+	
+	public IntegrationDSClientImpl(final DataSourceClient DSClient) {
+		dataSourceClient = DSClient;
+	}
 	
 	@Override
 	public EmployeeDS newEmployee(EmployeeDS employeeDS) {
