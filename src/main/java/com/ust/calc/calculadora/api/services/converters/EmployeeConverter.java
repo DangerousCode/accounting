@@ -2,23 +2,22 @@ package com.ust.calc.calculadora.api.services.converters;
 
 import org.springframework.core.convert.converter.Converter;
 
-import com.ust.calc.calculadora.api.resources.Contract;
 import com.ust.calc.calculadora.api.resources.Employee;
 import com.ust.calc.calculadora.clients.entity.EmployeeDS;
 
-public class EmployeeConverter implements Converter<EmployeeDS, Employee> {
+public class EmployeeConverter implements Converter<Employee, EmployeeDS> {
 	
 
 	@Override
-	public Employee convert(EmployeeDS source) {
+	public EmployeeDS convert(Employee employee) {
 		
-		Contract contract = new Contract(source.getCategoria(), source.getTipocontrato(), source.getFecalta(), source.getSalary(), 
-				                         source.getFecbaja(), source.getNsegsoc(), source.getEstadocivil(), source.getCtacte());
+		EmployeeDS employeeDS = new EmployeeDS(employee.getId(), employee.getName(), employee.getEmail(), 
+				 employee.getDni(), employee.getBirthDate(), employee.getAddress(),  employee.getSex(), employee.getPhoneNumber(),
+				 employee.getContract().getSalary(), employee.getContract().getCurrentAccount(), employee.getContract().getCivilStatus(), 
+				 employee.getContract().getStartDate(), employee.getContract().getCategory(), employee.getContract().getContractType(), 
+				 employee.getContract().getInsuranceNumber(), employee.getContract().getEndDate());
 		
-		Employee devolucion = new Employee(source.getName(), source.getDireccion(), source.getEmail(), source.getDni(), 
-				source.getFecnac(), source.getNumtel(), source.getSexo(), source.getId(), contract);
-		
-		return devolucion;
+		return employeeDS;
 	}
 
 }
