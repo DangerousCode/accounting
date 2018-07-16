@@ -20,10 +20,11 @@ public class PayrollService implements Payroll<Paysheet, Paysheet> {
     public Paysheet generatePayroll(final Paysheet paysheet) {
         //final Optional<Employee> employee = employeeRepository.findById(paysheet.getEmployeeId());
 
-        return paysheetRepository.save(Paysheet.builder()
-            .salary(employeePaysheetCalc.calulation(Employee.builder().position((int)(Math.random()*10)).build()))
-            .employeeId(paysheet.getEmployeeId())
-            .build());
+    	return null;
+        //return paysheetRepository.save(Paysheet.builder()
+         //   .salary(employeePaysheetCalc.calulation(Employee.builder().position((int)(Math.random()*10)).build()))
+         //   .employeeId(paysheet.getEmployeeId())
+         //   .build());
 
         //if (employee.isPresent()) {
 

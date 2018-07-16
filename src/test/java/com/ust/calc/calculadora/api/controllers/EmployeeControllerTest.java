@@ -2,6 +2,8 @@ package com.ust.calc.calculadora.api.controllers;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,9 +25,9 @@ public class EmployeeControllerTest {
 	private IEmployeeCreationService service;
 	
 	@Before
-	public void setUp() {
-		employeeController = new EmployeeController(service);
-	}
+//	public void setUp() {
+//		employeeController = new EmployeeController(service);
+//	}
 	
 	@Test
 	public void callRestOk() {
@@ -33,7 +35,7 @@ public class EmployeeControllerTest {
 		Employee employee = new Employee(); 
 		employee.setName("a");
 		employee.setDni("a");
-		employee.setBirthDate("a");
+		employee.setBirthDate(new Date());
 		employee.setEmail("a");
 		
 		Contract contract = new Contract();
@@ -59,7 +61,7 @@ public class EmployeeControllerTest {
 		Employee employee = new Employee(); 
 		employee.setName(null);
 		employee.setDni("a");
-		employee.setBirthDate("a");
+		employee.setBirthDate(new Date());
 		employee.setEmail("a");
 		
 		Contract contract = new Contract();

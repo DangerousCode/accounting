@@ -22,9 +22,10 @@ public class SpanishPaysheetCalc implements PaysheetCalc<Employee> {
 
     @Override
     public BigDecimal calulation(final Employee employee) {
-        final Integer multiply = multiplicacionClient.multiply(employee.getPosition(), SUELDO_BASE);
-        log.info("multiply:{}", multiply);
-        return BigDecimal.valueOf(multiply);
+       // final Integer multiply = multiplicacionClient.multiply(employee.getPosition(), SUELDO_BASE);
+//        log.info("multiply:{}", multiply);
+//        return BigDecimal.valueOf(multiply);
+    	return null;
     }
 
 }
