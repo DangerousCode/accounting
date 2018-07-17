@@ -4,12 +4,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.runners.JUnit4;
 
 import com.ust.calc.calculadora.api.resources.Employee;
 import com.ust.calc.calculadora.clients.entity.EmployeeDS;
 
-@RunWith(SpringRunner.class)
+@RunWith(JUnit4.class)
 public class EmployeeDSToEmployeeConverterTest {
 
 	@Test

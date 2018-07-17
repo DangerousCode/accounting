@@ -1,11 +1,13 @@
 package com.ust.calc.calculadora.api.services.converters;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
 import com.ust.calc.calculadora.api.resources.Contract;
 import com.ust.calc.calculadora.api.resources.Employee;
 import com.ust.calc.calculadora.clients.entity.EmployeeDS;
 
+@Component
 public class EmployeeDSToEmployeeConverter implements Converter<EmployeeDS, Employee> {
 	
 
