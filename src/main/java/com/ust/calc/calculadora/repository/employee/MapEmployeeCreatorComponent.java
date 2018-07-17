@@ -18,8 +18,10 @@ public class MapEmployeeCreatorComponent implements CreatorComponent<Employee, S
     @Override
     public <S extends Employee> S save(S employee) {
         final String id = String.valueOf(Math.abs(random.nextInt()));
-        final Employee employeeSaved = Employee.builder().position(employee.getPosition()).id(id).name(employee.getName()).build();
-        map.put(id, employeeSaved);
-        return (S) employeeSaved;
+     //   final Employee employeeSaved = Employee.builder().position(employee.getPosition()).id(id).name(employee.getName()).build();
+     //   map.put(id, employeeSaved);
+       // return (S) employeeSaved;
+        
+        return null;
     }
 }
