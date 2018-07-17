@@ -1,5 +1,7 @@
 package com.ust.calc.calculadora.api.resources;
 
+import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,13 +13,20 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Contract {
 
+	@NotNull(message="The category is required")
 	private String category;
+	@NotNull(message="The contract type is required")
 	private String contractType;
+	@NotNull(message="The start date is required")
 	private String startDate;
+	@NotNull(message="The salary is required")
 	private String salary;
 	private String endDate;
+	@NotNull(message="The insurance number is required")
 	private String insuranceNumber;
+	@NotNull(message="The civil status is required")
 	private String civilStatus;
+	@NotNull(message="The current account is required")
 	private String currentAccount;
 	
 }
