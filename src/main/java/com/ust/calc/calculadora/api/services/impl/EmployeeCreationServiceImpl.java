@@ -16,15 +16,16 @@ import lombok.RequiredArgsConstructor;
 public class EmployeeCreationServiceImpl implements IEmployeeCreationService {
 	
 	private final IntegrationDSClient integrationDSClient;
+	private final EmployeeToEmployeeDSConverter converterEmployeeToEmployeeDS;
+	private final EmployeeDSToEmployeeConverter converterEmployeeDSToEmployee;
 	
 	public Employee createEmployee(Employee employee) {
 		
-		final EmployeeToEmployeeDSConverter converterEmployeeToEmployeeDS = new EmployeeToEmployeeDSConverter();
 		EmployeeDS employeeDS = converterEmployeeToEmployeeDS.convert(employee);
 		
 		employeeDS = integrationDSClient.newEmployee(employeeDS);		
 		
-		return new EmployeeDSToEmployeeConverter().convert(employeeDS);
+		return converterEmployeeDSToEmployee.convert(employeeDS);
 	}
 
 }

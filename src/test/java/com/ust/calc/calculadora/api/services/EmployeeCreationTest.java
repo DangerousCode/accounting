@@ -7,14 +7,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.ust.calc.calculadora.api.resources.Employee;
+import com.ust.calc.calculadora.api.services.converters.EmployeeDSToEmployeeConverter;
+import com.ust.calc.calculadora.api.services.converters.EmployeeToEmployeeDSConverter;
 import com.ust.calc.calculadora.api.services.impl.EmployeeCreationServiceImpl;
 import com.ust.calc.calculadora.clients.DataSourceClient;
 import com.ust.calc.calculadora.clients.entity.EmployeeDS;
 import com.ust.calc.calculadora.clients.integration.IntegrationDSClient;
-import com.ust.calc.calculadora.clients.integration.impl.IntegrationDSClientImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmployeeCreationTest {
@@ -29,19 +31,23 @@ public class EmployeeCreationTest {
     
     private @Mock
     DataSourceClient dataSourceClient;
+    
+    private @Mock 
+    EmployeeToEmployeeDSConverter converterEmployeeToEmployeeDS;
+	private @Mock 
+	EmployeeDSToEmployeeConverter converterEmployeeDSToEmployee;
 
     @Before
     public void setUp() {
-    	employeeCreationService = new EmployeeCreationServiceImpl(integrationDSClient);
-    	integrationDSClient = new IntegrationDSClientImpl(dataSourceClient);
-        employee = new Employee();
+    	employeeCreationService = new EmployeeCreationServiceImpl(integrationDSClient,converterEmployeeToEmployeeDS, converterEmployeeDSToEmployee);
     }
 
     @Test
     public void testEmployeeCreation() {    	
-    	final EmployeeDS inputClientCall = new EmployeeDS();
     	final EmployeeDS outputClientCall = new EmployeeDS();	
-        when(integrationDSClient.newEmployee(inputClientCall)).thenReturn(outputClientCall);
+        when(integrationDSClient.newEmployee(Mockito.any())).thenReturn(outputClientCall);
+        when(converterEmployeeToEmployeeDS.convert(Mockito.any())).thenReturn(new EmployeeDS());
+        when(converterEmployeeDSToEmployee.convert(Mockito.any())).thenReturn(new Employee());
         Employee outputService = employeeCreationService.createEmployee(employee);
         assertThat(outputService).isNotNull();
     }
