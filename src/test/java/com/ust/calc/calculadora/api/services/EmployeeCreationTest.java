@@ -38,12 +38,11 @@ public class EmployeeCreationTest {
     }
 
     @Test
-    public void testEmployeeCreation() {
-    	EmployeeDS outputService = null;
+    public void testEmployeeCreation() {    	
     	final EmployeeDS inputClientCall = new EmployeeDS();
     	final EmployeeDS outputClientCall = new EmployeeDS();	
         when(integrationDSClient.newEmployee(inputClientCall)).thenReturn(outputClientCall);
-        outputService = employeeCreationService.createEmployee(employee);
+        Employee outputService = employeeCreationService.createEmployee(employee);
         assertThat(outputService).isNotNull();
     }
 
