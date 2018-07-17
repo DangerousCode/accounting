@@ -12,8 +12,8 @@ public class IntegrationDSClientImpl implements IntegrationDSClient {
 
 	private final DataSourceClient dataSourceClient;
 	
-	public IntegrationDSClientImpl(final DataSourceClient DSClient) {
-		dataSourceClient = DSClient;
+	public IntegrationDSClientImpl(final DataSourceClient dSClient) {
+		dataSourceClient = dSClient;
 	}
 	
 	@Override

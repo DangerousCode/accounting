@@ -2,13 +2,13 @@ package com.ust.calc.calculadora.api.resources;
 
 import javax.validation.constraints.NotNull;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 @Getter
 @AllArgsConstructor
 @Builder
+@Setter
+@NoArgsConstructor
 public class Contract {
 
 	@NotNull(message="The category is required")
