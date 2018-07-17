@@ -1,7 +1,5 @@
 package com.ust.calc.calculadora.api.controllers;
 
-import com.ust.calc.calculadora.api.resources.Paysheet;
-import com.ust.calc.calculadora.services.Payroll;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

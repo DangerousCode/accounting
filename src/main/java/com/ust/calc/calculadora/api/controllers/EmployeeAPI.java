@@ -1,8 +1,7 @@
 package com.ust.calc.calculadora.api.controllers;
 
-import org.springframework.http.ResponseEntity;
-
 import com.ust.calc.calculadora.api.resources.Employee;
+import org.springframework.http.ResponseEntity;
 
 public interface EmployeeAPI {
 
