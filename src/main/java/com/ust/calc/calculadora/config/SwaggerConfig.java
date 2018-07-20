@@ -18,7 +18,7 @@ public class SwaggerConfig {
             .select()
             .apis(RequestHandlerSelectors.any())
             //.paths(PathSelectors.any())
-            .paths(PathSelectors.regex("/paysheet/*"))
+            .paths(PathSelectors.regex("/employee.*"))
             .build();
     }
 
