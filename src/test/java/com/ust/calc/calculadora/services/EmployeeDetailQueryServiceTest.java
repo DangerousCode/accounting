@@ -15,9 +15,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import com.ust.calc.calculadora.api.resources.Employee;
 import com.ust.calc.calculadora.clients.DataSourceWSClient;
-import com.ust.calc.calculadora.clients.entity.EmployeeDS;
-import com.ust.calc.calculadora.services.converters.EmployeeDSToEmployeeConverter;
+import com.ust.calc.calculadora.services.converters.DataProviderToEmployeeConverter;
 import com.ust.calc.calculadora.services.impl.EmployeeDetailQueryServiceImpl;
+import com.ust.calc.calculadora.wsdlstub.Data;
 
 @RunWith(MockitoJUnitRunner.class)
 public class EmployeeDetailQueryServiceTest {
@@ -28,32 +28,18 @@ public class EmployeeDetailQueryServiceTest {
     DataSourceWSClient dataSourceClient;
     
     private @Mock 
-    EmployeeDSToEmployeeConverter converterEmployeeDSToEmployee;
+    DataProviderToEmployeeConverter converterEmployeeDSToEmployee;
 	
     @Before
     public void setUp() {
     	employeeDetailQueryService = new EmployeeDetailQueryServiceImpl(dataSourceClient,converterEmployeeDSToEmployee);
     }
 
-    
-//	@Override
-//	public Employee getEmployeeDetailsByNIF(final String param) {		
-//		return converter.convert(wsClient.getEmployeeDetailsByNIF(param));
-//	}
-//
-//	@Override
-//	public List<Employee> getEmployeeDetailsByName(final String param) {
-//		List<Employee> lstReturnedEmployees = new LinkedList<Employee>();
-//		for(EmployeeDS providerEmployee : wsClient.getEmployeeDetailsByName(param)) {
-//			lstReturnedEmployees.add(converter.convert(providerEmployee));
-//		}
-//		return lstReturnedEmployees;
-//	}
-    
+     
     @Test
     public void testDetailsByNIF() { 
     	final Employee outputService = new Employee();
-    	when(dataSourceClient.getEmployeeDetailsByNIF(Mockito.anyString())).thenReturn(new EmployeeDS());
+    	when(dataSourceClient.getEmployeeDetailsByNIF(Mockito.anyString())).thenReturn(Data.builder().build());
     	when(converterEmployeeDSToEmployee.convert(Mockito.any())).thenReturn(outputService);
     	employeeDetailQueryService.getEmployeeDetailsByNIF("83479509F");
         assertThat(outputService).isNotNull();
@@ -63,9 +49,9 @@ public class EmployeeDetailQueryServiceTest {
     public void testDetailsByName() {    	
     	final List<Employee> outputService = new LinkedList<Employee>();
     	@SuppressWarnings("serial")
-		List<EmployeeDS> dsClientOutput = new LinkedList<EmployeeDS>() {{
-    		add(new EmployeeDS());
-    		add(new EmployeeDS());
+		List<Data> dsClientOutput = new LinkedList<Data>() {{
+    		add(new Data());
+    		add(new Data());
     	}};
     	when(dataSourceClient.getEmployeeDetailsByName(Mockito.anyString())).thenReturn(dsClientOutput);
     	when(converterEmployeeDSToEmployee.convert(Mockito.any())).thenReturn(new Employee());

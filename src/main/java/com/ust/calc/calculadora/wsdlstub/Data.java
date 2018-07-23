@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2018.07.23 a las 10:30:10 AM CEST 
+// Generado el: 2018.07.23 a las 03:24:36 PM CEST 
 //
 
 
@@ -11,6 +11,10 @@ package com.ust.calc.calculadora.wsdlstub;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 
 /**
@@ -66,6 +70,9 @@ import javax.xml.bind.annotation.XmlType;
     "numtel",
     "fecbaja"
 })
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Data {
 
     protected String id;

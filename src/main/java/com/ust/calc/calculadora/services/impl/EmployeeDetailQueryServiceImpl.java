@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.ust.calc.calculadora.api.resources.Employee;
 import com.ust.calc.calculadora.clients.DataSourceWSClient;
-import com.ust.calc.calculadora.clients.entity.EmployeeDS;
 import com.ust.calc.calculadora.services.IEmployeeDetailQueryService;
-import com.ust.calc.calculadora.services.converters.EmployeeDSToEmployeeConverter;
+import com.ust.calc.calculadora.services.converters.DataProviderToEmployeeConverter;
+import com.ust.calc.calculadora.wsdlstub.Data;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,7 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class EmployeeDetailQueryServiceImpl implements IEmployeeDetailQueryService {
 
 	private final DataSourceWSClient wsClient;
-	private final EmployeeDSToEmployeeConverter converter;
+	private final DataProviderToEmployeeConverter converter;
 	
 	@Override
 	public Employee getEmployeeDetailsByNIF(final String param) {		
@@ -28,7 +28,7 @@ public class EmployeeDetailQueryServiceImpl implements IEmployeeDetailQueryServi
 	@Override
 	public List<Employee> getEmployeeDetailsByName(final String param) {
 		List<Employee> lstReturnedEmployees = new LinkedList<Employee>();
-		for(EmployeeDS providerEmployee : wsClient.getEmployeeDetailsByName(param)) {
+		for(Data providerEmployee : wsClient.getEmployeeDetailsByName(param)) {
 			lstReturnedEmployees.add(converter.convert(providerEmployee));
 		}
 		return lstReturnedEmployees;
