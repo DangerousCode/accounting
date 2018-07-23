@@ -13,8 +13,12 @@ public class EmployeeDeleteClientImpl implements EmployeeDeleteClient {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeDeleteClientImpl.class);
 
+	private final DataSourceWSClientDelete dataSourceWSClientDelete;
+	
 	@Autowired
-	private DataSourceWSClientDelete dataSourceWSClientDelete;
+	public EmployeeDeleteClientImpl(DataSourceWSClientDelete dataSourceWSClientDelete) {
+		this.dataSourceWSClientDelete = dataSourceWSClientDelete;
+	}
 	
 	@Override
 	public void deleteEmployee(final Integer id) {

@@ -29,7 +29,7 @@ public class EmployeeDeleteControllerTest {
 	}
 	
 	
-	@Test(expected=RuntimeException.class)
+	@Test
 	public void noHappyTest() {
 		employeeDeleteController.deleteEmployee(null);
 	}
