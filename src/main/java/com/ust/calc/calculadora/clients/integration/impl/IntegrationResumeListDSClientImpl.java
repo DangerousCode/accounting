@@ -17,9 +17,11 @@ import com.ust.calc.calculadora.clients.integration.IntegrationResumeListDSClien
 @Service
 public class IntegrationResumeListDSClientImpl implements IntegrationResumeListDSClient {
 	
-	private final RestTemplate restTemplate = new RestTemplate();
 	
-	public IntegrationResumeListDSClientImpl() {
+	private final RestTemplate restTemplate;
+	
+	public IntegrationResumeListDSClientImpl(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -28,9 +30,8 @@ public class IntegrationResumeListDSClientImpl implements IntegrationResumeListD
 		
 		List<EmployeeDS> salida = new ArrayList<EmployeeDS>();
 		
-		ResponseEntity<Object> response = restTemplate.getForEntity("http://localhost:8080/data", Object.class);
-		LinkedHashMap body = (LinkedHashMap)response.getBody();
-		LinkedHashMap _embedded = (LinkedHashMap)body.get("_embedded");
+		LinkedHashMap response = (LinkedHashMap)restTemplate.getForObject("http://localhost:8080/data", Object.class);
+		LinkedHashMap _embedded = (LinkedHashMap)response.get("_embedded");
 		ArrayList data = (ArrayList)_embedded.get("data");
 		
 		if(data!=null) {

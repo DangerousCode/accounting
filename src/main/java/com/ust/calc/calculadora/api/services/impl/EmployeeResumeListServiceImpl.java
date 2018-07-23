@@ -14,11 +14,19 @@ import com.ust.calc.calculadora.clients.integration.IntegrationResumeListDSClien
 import lombok.RequiredArgsConstructor;
 
 @Service
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class EmployeeResumeListServiceImpl implements IEmployeeResumeListService {
 	
 	private final IntegrationResumeListDSClient integrationResumeListDSClient;
 	private final EmployeeDSToEmployeeConverter converterEmployeeDSToEmployee;
+	
+	public EmployeeResumeListServiceImpl(IntegrationResumeListDSClient integrationResumeListDSClient,
+			EmployeeDSToEmployeeConverter converterEmployeeDSToEmployee) {
+		
+		this.integrationResumeListDSClient = integrationResumeListDSClient;
+		this.converterEmployeeDSToEmployee = converterEmployeeDSToEmployee;
+		
+	}
 	
 	public List<Employee> resumeListEmployee() {
 		
