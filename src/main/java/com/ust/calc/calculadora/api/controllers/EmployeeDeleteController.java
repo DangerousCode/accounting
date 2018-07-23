@@ -29,7 +29,12 @@ public class EmployeeDeleteController implements EmployeeDeleteAPI {
 		this.employeeDeleteService = employeeDeleteService;
 	}
 	
-	@ApiOperation(value = "Delete employee", httpMethod = "DELETE", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation(
+			value = "Delete employee", 
+			httpMethod = "DELETE", 
+			produces = MediaType.APPLICATION_JSON_VALUE,
+			tags = {"Employee"}
+	)
 	@ApiResponses({ 
 		@ApiResponse(code = 200, message = "Delete the employee"),
 		@ApiResponse(code = 404, message = "Employee not exist")
