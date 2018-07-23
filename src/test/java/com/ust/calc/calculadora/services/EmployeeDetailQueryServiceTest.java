@@ -62,7 +62,12 @@ public class EmployeeDetailQueryServiceTest {
     @Test
     public void testDetailsByName() {    	
     	final List<Employee> outputService = new LinkedList<Employee>();
-    	when(dataSourceClient.getEmployeeDetailsByName(Mockito.anyString())).thenReturn(new LinkedList<EmployeeDS>());
+    	@SuppressWarnings("serial")
+		List<EmployeeDS> dsClientOutput = new LinkedList<EmployeeDS>() {{
+    		add(new EmployeeDS());
+    		add(new EmployeeDS());
+    	}};
+    	when(dataSourceClient.getEmployeeDetailsByName(Mockito.anyString())).thenReturn(dsClientOutput);
     	when(converterEmployeeDSToEmployee.convert(Mockito.any())).thenReturn(new Employee());
     	employeeDetailQueryService.getEmployeeDetailsByName("alotes");
         assertThat(outputService).isNotNull();

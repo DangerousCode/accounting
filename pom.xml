@@ -161,7 +161,8 @@
 				<version>0.13.2</version>
 				<executions>
 					<execution>
-						<goals>
+					    <phase>package</phase>
+					    <goals>
 							<goal>generate</goal>
 						</goals>
 					</execution>

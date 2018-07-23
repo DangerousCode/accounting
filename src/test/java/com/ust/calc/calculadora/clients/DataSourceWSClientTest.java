@@ -36,7 +36,7 @@ public class DataSourceWSClientTest {
 
 	@Test
 	public void testNIFOK() throws JsonProcessingException {
-		final String testDni = "87589609F";
+		final String testDni = "83479509F";
 		final EmployeeDS employeeResult = new EmployeeDS();
 		final FindByDniResponse outputData = new FindByDniResponse();
 		when(dataClientWSStub.findByDni(testDni)).thenReturn(outputData);

@@ -33,7 +33,7 @@ public class EmployeeDetailQueryControllerTest {
 
         Mockito.when(service.getEmployeeDetailsByNIF(Mockito.any(String.class))).thenReturn(new Employee());
 
-        ResponseEntity<Employee> employeeResult = employeeController.getEmployeeDetailsByNIF("85980735F");
+        ResponseEntity<Employee> employeeResult = employeeController.getEmployeeDetailsByNIF("83479509F");
         assertNotNull(employeeResult);
     }
     
