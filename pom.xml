@@ -59,11 +59,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
-		
+
 		<dependency>
-               <groupId>org.springframework.ws</groupId>
-               <artifactId>spring-ws-core</artifactId>
-        </dependency>
+			<groupId>org.springframework.ws</groupId>
+			<artifactId>spring-ws-core</artifactId>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -155,29 +155,28 @@
 				</executions>
 			</plugin>
 			<!-- tag::wsdl[] -->
-            <plugin>
-                <groupId>org.jvnet.jaxb2.maven2</groupId>
-                <artifactId>maven-jaxb2-plugin</artifactId>
-                <version>0.13.2</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <schemaLanguage>WSDL</schemaLanguage>
-                    <generatePackage>com.ust.calc.calculadora.wsdlstub</generatePackage>
-                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-                    <schemas>
-                        <schema>
-                            <url>http://localhost:8080/datasource-ws/data?wsdl</url>
-                        </schema>
-                    </schemas>
-                </configuration>
-            </plugin>
-            <!-- end::wsdl[] -->
+			<plugin>
+				<groupId>org.jvnet.jaxb2.maven2</groupId>
+				<artifactId>maven-jaxb2-plugin</artifactId>
+				<version>0.13.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<schemaLanguage>WSDL</schemaLanguage>
+					<generatePackage>com.ust.calc.calculadora.wsdlstub</generatePackage>
+					<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+					<schemaDirectory>${project.basedir}/src/main/resources/wsdl</schemaDirectory>
+					<schemaIncludes>
+						<include>*.wsdl</include>
+					</schemaIncludes>
+				</configuration>
+			</plugin>
+			<!-- end::wsdl[] -->
 		</plugins>
 	</build>
 </project>

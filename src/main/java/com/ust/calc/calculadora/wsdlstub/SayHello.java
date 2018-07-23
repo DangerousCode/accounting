@@ -2,7 +2,7 @@
 // Este archivo ha sido generado por la arquitectura JavaTM para la implantación de la referencia de enlace (JAXB) XML v2.2.11 
 // Visite <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas las modificaciones realizadas en este archivo se perderán si se vuelve a compilar el esquema de origen. 
-// Generado el: 2018.07.20 a las 01:16:13 PM CEST 
+// Generado el: 2018.07.23 a las 10:30:10 AM CEST 
 //
 
 
@@ -14,16 +14,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para createData complex type.
+ * <p>Clase Java para sayHello complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="createData"&gt;
+ * &lt;complexType name="sayHello"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="arg0" type="{http://api.datasource.ust.com/}data" minOccurs="0"/&gt;
+ *         &lt;element name="data" type="{http://service.ws.sample/}data" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -33,35 +33,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "createData", propOrder = {
-    "arg0"
+@XmlType(name = "sayHello", propOrder = {
+    "data"
 })
-public class CreateData {
+public class SayHello {
 
-    protected Data arg0;
+    protected Data data;
 
     /**
-     * Obtiene el valor de la propiedad arg0.
+     * Obtiene el valor de la propiedad data.
      * 
      * @return
      *     possible object is
      *     {@link Data }
      *     
      */
-    public Data getArg0() {
-        return arg0;
+    public Data getData() {
+        return data;
     }
 
     /**
-     * Define el valor de la propiedad arg0.
+     * Define el valor de la propiedad data.
      * 
      * @param value
      *     allowed object is
      *     {@link Data }
      *     
      */
-    public void setArg0(Data value) {
-        this.arg0 = value;
+    public void setData(Data value) {
+        this.data = value;
     }
 
 }
