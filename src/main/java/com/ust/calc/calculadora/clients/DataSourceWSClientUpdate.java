@@ -19,7 +19,7 @@ public class DataSourceWSClientUpdate {
 	public Data dataUpdate(Data data){
 
         /*URL wsdlUrl = new URL("http://localhost:8080/datasource-ws/data?WSDL");
-        QName qname = new QName("http://api.datasource.ust.com/", "DataOperationPortImplService");
+        QName qname = new QName("http://service.ws.sample/", "DataOperationPortImplService");
         Service service = Service.create(wsdlUrl, qname);
         DataOperation dataOperation = service.getPort(DataOperation.class);*/
 		

@@ -17,7 +17,7 @@ import javax.xml.ws.ResponseWrapper;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "DataOperation", targetNamespace = "http://api.datasource.ust.com/")
+@WebService(name = "DataOperation", targetNamespace = "http://service.ws.sample/")
 @XmlSeeAlso({
     ObjectFactory.class
 })
@@ -32,8 +32,8 @@ public interface DataOperation {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "createData", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.CreateData")
-    @ResponseWrapper(localName = "createDataResponse", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.CreateDataResponse")
+    @RequestWrapper(localName = "createData", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.CreateData")
+    @ResponseWrapper(localName = "createDataResponse", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.CreateDataResponse")
     public Data createData(
         @WebParam(name = "arg0", targetNamespace = "")
         Data arg0);
@@ -46,8 +46,8 @@ public interface DataOperation {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "readData", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.ReadData")
-    @ResponseWrapper(localName = "readDataResponse", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.ReadDataResponse")
+    @RequestWrapper(localName = "readData", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.ReadData")
+    @ResponseWrapper(localName = "readDataResponse", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.ReadDataResponse")
     public Data readData(
         @WebParam(name = "id", targetNamespace = "")
         String id);
@@ -60,8 +60,8 @@ public interface DataOperation {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findByDni", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.FindByDni")
-    @ResponseWrapper(localName = "findByDniResponse", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.FindByDniResponse")
+    @RequestWrapper(localName = "findByDni", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.FindByDni")
+    @ResponseWrapper(localName = "findByDniResponse", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.FindByDniResponse")
     public Data findByDni(
         @WebParam(name = "dni", targetNamespace = "")
         String dni);
@@ -74,8 +74,8 @@ public interface DataOperation {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findByName", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.FindByName")
-    @ResponseWrapper(localName = "findByNameResponse", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.FindByNameResponse")
+    @RequestWrapper(localName = "findByName", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.FindByName")
+    @ResponseWrapper(localName = "findByNameResponse", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.FindByNameResponse")
     public List<Data> findByName(
         @WebParam(name = "name", targetNamespace = "")
         String name);
@@ -88,8 +88,8 @@ public interface DataOperation {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "update", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.Update")
-    @ResponseWrapper(localName = "updateResponse", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.UpdateResponse")
+    @RequestWrapper(localName = "update", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.Update")
+    @ResponseWrapper(localName = "updateResponse", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.UpdateResponse")
     public Data update(
         @WebParam(name = "arg0", targetNamespace = "")
         Data arg0);
@@ -99,8 +99,8 @@ public interface DataOperation {
      * @param id
      */
     @WebMethod
-    @RequestWrapper(localName = "delete", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.Delete")
-    @ResponseWrapper(localName = "deleteResponse", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.DeleteResponse")
+    @RequestWrapper(localName = "delete", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.Delete")
+    @ResponseWrapper(localName = "deleteResponse", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.DeleteResponse")
     public void delete(
         @WebParam(name = "id", targetNamespace = "")
         String id);
@@ -112,8 +112,8 @@ public interface DataOperation {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "findAll", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.FindAll")
-    @ResponseWrapper(localName = "findAllResponse", targetNamespace = "http://api.datasource.ust.com/", className = "com.ust.datasource.api.FindAllResponse")
+    @RequestWrapper(localName = "findAll", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.FindAll")
+    @ResponseWrapper(localName = "findAllResponse", targetNamespace = "http://service.ws.sample/", className = "com.ust.datasource.api.FindAllResponse")
     public List<Data> findAll();
 
 }
