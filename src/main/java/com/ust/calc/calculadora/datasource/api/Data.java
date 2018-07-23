@@ -5,6 +5,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 
 /**
  * <p>Clase Java para data complex type.
@@ -40,6 +43,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
+@NoArgsConstructor
+@AllArgsConstructor
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "data", propOrder = {
     "id",
