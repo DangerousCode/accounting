@@ -3,6 +3,7 @@ package com.ust.calc.calculadora.api.controllers;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class EmployeeControllerIntegrationTest {
     @Autowired
     private EmployeeDeleteService repository;
     
+    @Ignore
     @Test
     public void happyTest() throws Exception {
     	mvc.perform(delete("/employee/1")
