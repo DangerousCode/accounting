@@ -1,12 +1,9 @@
 package com.ust.calc.calculadora.clients.integration.impl;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -30,16 +27,31 @@ public class IntegrationResumeListDSClientImpl implements IntegrationResumeListD
 		
 		List<EmployeeDS> salida = new ArrayList<EmployeeDS>();
 		
-		LinkedHashMap response = (LinkedHashMap)restTemplate.getForObject("http://localhost:8080/data", Object.class);
-		LinkedHashMap _embedded = (LinkedHashMap)response.get("_embedded");
-		ArrayList data = (ArrayList)_embedded.get("data");
+		LinkedHashMap<String, LinkedHashMap<String, ArrayList<LinkedHashMap<String, String>>>> response = (LinkedHashMap<String, LinkedHashMap<String, ArrayList<LinkedHashMap<String, String>>>>)restTemplate.getForObject("http://localhost:8080/data", Object.class);
+		LinkedHashMap<String, ArrayList<LinkedHashMap<String, String>>> _embedded = (LinkedHashMap<String, ArrayList<LinkedHashMap<String, String>>>)response.get("_embedded");
+		ArrayList<LinkedHashMap<String, String>> data = (ArrayList<LinkedHashMap<String, String>>)_embedded.get("data");
 		
 		if(data!=null) {
 			for(int i=0; i<data.size();i++) {
-				LinkedHashMap lhm = (LinkedHashMap)data.get(i);
+				LinkedHashMap<String, String> lhm = (LinkedHashMap<String, String>)data.get(i);
+				String id = (String)lhm.get("id");
 				String name = (String)lhm.get("name");
+				String email = (String)lhm.get("email");
+				String salary = (String)lhm.get("salary");
 				String dni = (String)lhm.get("dni");
-				EmployeeDS employeeDS= new EmployeeDS("", name, "", "", dni, "", "", "", "", "", "", "", "", "", "", "");
+				String fecnac = (String)lhm.get("fecnac");
+				String direccion = (String)lhm.get("direccion");
+				String ctacte = (String)lhm.get("ctacte");
+				String estadocivil = (String)lhm.get("estadocivil");
+				String sexo = (String)lhm.get("sexo");
+				String fecalta = (String)lhm.get("fecalta");
+				String categoria = (String)lhm.get("categoria");
+				String tipocontrato = (String)lhm.get("tipocontrato");
+				String nsegsoc = (String)lhm.get("nsegsoc");
+				String numtel = (String)lhm.get("numtel");
+				String fecbaja = (String)lhm.get("fecbaja");
+				
+				EmployeeDS employeeDS= new EmployeeDS(id, name, email, salary, dni, fecnac, direccion, ctacte, estadocivil, sexo, fecalta, categoria, tipocontrato, nsegsoc, numtel, fecbaja);
 				salida.add(employeeDS);
 			}
 		}
