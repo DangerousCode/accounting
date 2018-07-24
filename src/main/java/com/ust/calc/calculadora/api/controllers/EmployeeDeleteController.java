@@ -41,11 +41,8 @@ public class EmployeeDeleteController implements EmployeeDeleteAPI {
 	})
 	@DeleteMapping(path = "/employee/{id}")
 	@Override
-	public ResponseEntity<String> deleteEmployee(@ApiParam(value="ID of employee to delete") @PathVariable final String id) {
+	public ResponseEntity<String> deleteEmployee(@ApiParam(value="ID of employee to delete") @PathVariable(required=true) final String id) {
 		LOGGER.info("Start resource /employee/{id} with ID -> {}", id);
-		if(id == null) {
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("The id is required");
-		}
 		
 		employeeDeleteService.deleteEmployee(id);
 		LOGGER.info("End resource /employee/{id} with ID -> {}", id);
