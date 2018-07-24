@@ -2,7 +2,7 @@ package com.ust.calc.calculadora.api.controllers;
 
 import javax.validation.Valid;
 
-import com.ust.calc.calculadora.api.services.IEmployeeCreationService;
+import com.ust.calc.calculadora.services.IEmployeeCreationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

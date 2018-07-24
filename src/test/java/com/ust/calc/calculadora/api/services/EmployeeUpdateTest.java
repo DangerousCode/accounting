@@ -3,6 +3,8 @@ package com.ust.calc.calculadora.api.services;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
+import com.ust.calc.calculadora.services.converters.EmployeeDSToEmployeeConverter;
+import com.ust.calc.calculadora.services.converters.EmployeeToEmployeeDSConverter;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,8 +13,6 @@ import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.ust.calc.calculadora.api.resources.Employee;
-import com.ust.calc.calculadora.api.services.converters.EmployeeDSToEmployeeConverter;
-import com.ust.calc.calculadora.api.services.converters.EmployeeToEmployeeDSConverter;
 import com.ust.calc.calculadora.api.services.impl.EmployeeUpdateServiceImpl;
 import com.ust.calc.calculadora.clients.DataSourceWSClientUpdate;
 import com.ust.calc.calculadora.clients.entity.EmployeeDS;
