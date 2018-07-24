@@ -1,37 +1,43 @@
 package com.ust.calc.calculadora;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import org.junit.Ignore;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ust.calc.calculadora.api.resources.Employee;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 
-@Ignore("Es un test funcional, no integral")
-@RunWith(SpringRunner.class)
-@SpringBootTest
+import static org.assertj.core.api.Assertions.assertThat;
+
+//@RunWith(SpringRunner.class)
+@SpringBootTest(classes = CalculadoraApplication.class)
 @AutoConfigureMockMvc
+@ActiveProfiles("INTEGRATION_TEST")
+@ContextConfiguration
+@Slf4j
 public class CalculadoraApplicationTests {
 
-	@Autowired
-	private MockMvc mockMvc;
-	
-	@Test
-	public void contextLoads() throws Exception {
-		
-		mockMvc.perform(get("/calculo?one=5&two=8&three=1&four=1")).andExpect(status().isOk());
-	}
-	
-	@Test
-	public void devolverResultadoMultiplicacion() throws Exception {
-		mockMvc.perform(get("/calculo?one=5&two=8&three=1&four=1")).andExpect(content().string("40"));
-	}
-	
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Test
+    public void contextLoads() throws Exception {
+        log.info("hol");
+    }
+
+    @Autowired
+    ObjectMapper o;
+
+    @Test
+    public void contextLoads(String algo) throws Exception {
+        log.info("hol");
+        Employee em = o.readValue(algo, Employee.class);
+        assertThat(em.getName()).isNotNull();
+
+    }
 
 }
