@@ -32,7 +32,7 @@ public class Employee {
 	
 	@NotNull(message="The DNI is required")
 	@Pattern.List({
-	    @Pattern(regexp = "((([X-Z])|([LM])){1}([-]?)((\\d){7})([-]?)([A-Z]{1}))|((\\d{8})([-]?)([A-Z]))", message = "Password must contain one digit."),
+	    @Pattern(regexp = "((([X-Z])|([LM])){1}([-]?)((\\d){7})([-]?)([A-Z]{1}))|((\\d{8})([-]?)([A-Z]))", message = "The DNI must contain one digit."),
 //	    @Pattern(regexp = "[XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]", message = "Password must contain one lowercase letter."),	    @Pattern(regexp = "(?=.*[A-Z])", message = "Password must contain one uppercase letter."),
 	})
     private String dni;
