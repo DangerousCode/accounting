@@ -5,6 +5,6 @@ public interface EmployeeDeleteClient {
 	/**
 	 * Call other service where is the datasource with employees
 	 */
-	public void deleteEmployee(Integer id);
+	public void deleteEmployee(String id);
 
 }

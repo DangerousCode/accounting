@@ -10,11 +10,7 @@ public class DataSourceWSClientDelete {
 
 	public void employeeDSDelete(String id){
 		//WebServiceClient
-		DataOperationPortImplService service = new DataOperationPortImplService();
 		
-		DataOperation dataOperation = service.getDataOperationPortImplPort();
-        
-        dataOperation.delete(id);
        
     }
 }

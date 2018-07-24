@@ -4,6 +4,6 @@ import org.springframework.http.ResponseEntity;
 
 public interface EmployeeDeleteAPI {
 
-	public ResponseEntity<Void> deleteEmployee(Integer id);
+	public ResponseEntity<String> deleteEmployee(String id);
 
 }

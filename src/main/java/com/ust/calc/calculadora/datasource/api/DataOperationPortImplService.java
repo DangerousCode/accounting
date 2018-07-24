@@ -22,7 +22,7 @@ import org.springframework.stereotype.Component;
 @Component
 @WebServiceClient(name = "HelloService", targetNamespace = "http://service.ws.sample/", wsdlLocation = "http://localhost:8080/datasource-ws/data?WSDL")
 public class DataOperationPortImplService
-    extends Service
+    extends Service implements DataOperationPortService
 {
 
     private final static URL DATAOPERATIONPORTIMPLSERVICE_WSDL_LOCATION;

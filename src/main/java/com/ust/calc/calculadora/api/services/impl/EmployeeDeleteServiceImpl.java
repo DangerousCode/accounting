@@ -17,7 +17,7 @@ public class EmployeeDeleteServiceImpl implements EmployeeDeleteService {
 	}
 	
 	@Override
-	public void deleteEmployee(final Integer id) {
+	public void deleteEmployee(final String id) {
 		employeeDeleteClient.deleteEmployee(id);
 	}
 }

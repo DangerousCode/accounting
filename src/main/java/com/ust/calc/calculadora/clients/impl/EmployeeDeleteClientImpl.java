@@ -5,25 +5,28 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.ust.calc.calculadora.clients.DataSourceWSClientDelete;
 import com.ust.calc.calculadora.clients.EmployeeDeleteClient;
+import com.ust.calc.calculadora.datasource.api.DataOperation;
+import com.ust.calc.calculadora.datasource.api.DataOperationPortImplService;
+import com.ust.calc.calculadora.datasource.api.DataOperationPortService;
 
 @Component
 public class EmployeeDeleteClientImpl implements EmployeeDeleteClient {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeDeleteClientImpl.class);
 
-	private final DataSourceWSClientDelete dataSourceWSClientDelete;
+	private final DataOperationPortService dataOperationPortService;
 	
 	@Autowired
-	public EmployeeDeleteClientImpl(DataSourceWSClientDelete dataSourceWSClientDelete) {
-		this.dataSourceWSClientDelete = dataSourceWSClientDelete;
+	public EmployeeDeleteClientImpl(DataOperationPortService dataOperationPortService) {
+		this.dataOperationPortService = dataOperationPortService;
 	}
 	
 	@Override
-	public void deleteEmployee(final Integer id) {
+	public void deleteEmployee(final String id) {
 		LOGGER.info("Request for external service: {}", id);
-		dataSourceWSClientDelete.employeeDSDelete(Integer.toString(id));
+		DataOperation dataOperation = dataOperationPortService.getDataOperationPortImplPort();
+        dataOperation.delete(id);
 		LOGGER.info("Response for external service: {}", id);
 	}
 }

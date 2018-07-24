@@ -25,7 +25,7 @@ public class EmployeeDeleteServiceTest {
 	
 	@Test
 	public void happyTest() {
-		Mockito.doNothing().when(employeeDeleteClient).deleteEmployee(Mockito.anyInt());
-		employeeDeleteServiceImpl.deleteEmployee(1);
+		Mockito.doNothing().when(employeeDeleteClient).deleteEmployee(Mockito.any());
+		employeeDeleteServiceImpl.deleteEmployee("1");
 	}
 }

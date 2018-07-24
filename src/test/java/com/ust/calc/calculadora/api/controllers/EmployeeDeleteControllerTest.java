@@ -24,8 +24,8 @@ public class EmployeeDeleteControllerTest {
 	
 	@Test
 	public void happyTest() {
-		Mockito.doNothing().when(employeeDeleteService).deleteEmployee(Mockito.anyInt());
-		employeeDeleteController.deleteEmployee(1);
+		Mockito.doNothing().when(employeeDeleteService).deleteEmployee(Mockito.any());
+		employeeDeleteController.deleteEmployee("1");
 	}
 	
 	
