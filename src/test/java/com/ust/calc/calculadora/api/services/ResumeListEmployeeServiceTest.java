@@ -10,17 +10,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.ust.calc.calculadora.api.resources.Employee;
 import com.ust.calc.calculadora.api.services.converters.EmployeeDSToEmployeeConverter;
 import com.ust.calc.calculadora.api.services.converters.EmployeeToEmployeeDSConverter;
-import com.ust.calc.calculadora.api.services.impl.EmployeeCreationServiceImpl;
 import com.ust.calc.calculadora.api.services.impl.EmployeeResumeListServiceImpl;
 import com.ust.calc.calculadora.clients.DataSourceClient;
 import com.ust.calc.calculadora.clients.entity.EmployeeDS;
-import com.ust.calc.calculadora.clients.integration.IntegrationDSClient;
 import com.ust.calc.calculadora.clients.integration.IntegrationResumeListDSClient;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -50,6 +47,19 @@ public class ResumeListEmployeeServiceTest {
         when(integrationResumeListDSClient.resumeListEmployee()).thenReturn(employeesDS);
         List<Employee> employees = employeeResumeListService.resumeListEmployee();
         assertThat(employees).isNotNull();
+    }
+    
+    @Test
+    public void testEmployeeResumeListData() { 
+    	List<EmployeeDS> employeesDS = new ArrayList<EmployeeDS>();
+    	EmployeeDS employeeDS = new EmployeeDS("1", "jose1", "a@b.es", "10000", "12757747R", "01/02/1990", "Calle Nueva 1", "01234567890123456789", "S", "V", "01/06/2015", "H", "I", "11111111111111111111", "123456789", "01/07/2018");
+    	employeesDS.add(employeeDS);
+    	
+        when(integrationResumeListDSClient.resumeListEmployee()).thenReturn(employeesDS);
+        List<Employee> employees = employeeResumeListService.resumeListEmployee();
+        assertThat(employees.size() > 0).isTrue();
     }	
+
+    
 
 }
