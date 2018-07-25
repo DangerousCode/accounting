@@ -1,6 +1,7 @@
 package com.ust.calc.calculadora.api.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.junit.Before;
@@ -51,6 +52,7 @@ public class EmployeeUpdateTest {
         when(converterEmployeeDSToEmployee.convert(Mockito.any())).thenReturn(new Employee());
         Employee outputService = employeeUpdateService.updateEmployee(employee);
         assertThat(outputService).isNotNull();
+        verify(integrationDSClientUpdate).employeeUpdate(Mockito.any());
 	}
 
 }
