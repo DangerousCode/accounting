@@ -1,2 +1,2 @@
-swagger UI
-http://localhost:8081/accounting/swagger-ui.html
+# swagger UI
+http://localhost:8081/swagger-ui.html
