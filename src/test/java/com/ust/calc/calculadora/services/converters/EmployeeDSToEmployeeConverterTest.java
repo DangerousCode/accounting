@@ -1,25 +1,23 @@
-package com.ust.calc.calculadora.api.services.converters;
+package com.ust.calc.calculadora.services.converters;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
-import java.util.Calendar;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import com.ust.calc.calculadora.api.resources.Contract;
 import com.ust.calc.calculadora.api.resources.Employee;
 import com.ust.calc.calculadora.clients.entity.EmployeeDS;
+import com.ust.calc.calculadora.services.converters.EmployeeDSToEmployeeConverter;
 
 @RunWith(JUnit4.class)
-public class EmployeeToEmployeeDSConverterTest {
+public class EmployeeDSToEmployeeConverterTest {
 
 	@Test
     public void testConverter() {
 		
-		Employee input = new Employee("","","","",Calendar.getInstance().getTime(),"","","",new Contract("", "", "","", "","","",""));
-		EmployeeDS output = new EmployeeToEmployeeDSConverter().convert(input);
+		EmployeeDS input = new EmployeeDS("","","","","","","","","","","","","","","","");
+		Employee output = new EmployeeDSToEmployeeConverter().convert(input);
     	assertThat(output).isNotNull();
     	assertThat(output.getName()).isEqualTo("");
     }

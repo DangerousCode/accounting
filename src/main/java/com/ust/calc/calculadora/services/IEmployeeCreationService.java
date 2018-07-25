@@ -1,4 +1,4 @@
-package com.ust.calc.calculadora.api.services;
+package com.ust.calc.calculadora.services;
 
 import com.ust.calc.calculadora.api.resources.Employee;
 

@@ -2,7 +2,7 @@ package com.ust.calc.calculadora.api.controllers;
 
 import com.ust.calc.calculadora.api.resources.Contract;
 import com.ust.calc.calculadora.api.resources.Employee;
-import com.ust.calc.calculadora.api.services.IEmployeeCreationService;
+import com.ust.calc.calculadora.services.IEmployeeCreationService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
