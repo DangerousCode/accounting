@@ -20,7 +20,7 @@ public class SwaggerConfig {
     	            .apis(RequestHandlerSelectors.basePackage("com.ust.calc.calculadora.api.controllers"))
     	            .paths(PathSelectors.any())
     	            //.paths(PathSelectors.regex("/employee/*"))
-    	            .build(); 
+    	            .build();
     }
 
 }
