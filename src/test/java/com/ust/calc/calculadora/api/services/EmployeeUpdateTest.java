@@ -12,7 +12,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.ust.calc.calculadora.api.resources.Employee;
@@ -25,9 +24,6 @@ import com.ust.calc.calculadora.clients.integration.IntegrationDSClientUpdate;
 public class EmployeeUpdateTest {
 	
 	private IEmployeeUpdateService employeeUpdateService;
-	
-	@Mock
-	private Employee employee;
 	
 	@Mock
 	private IntegrationDSClientUpdate integrationDSClientUpdate;
@@ -48,6 +44,8 @@ public class EmployeeUpdateTest {
 	
 	@Test
 	public void testEmployeeUpdate() {
+		
+		Employee employee = mock(Employee.class);
 		EmployeeDS outputClientCall = mock( EmployeeDS.class);
 		EmployeeDS employeeUpdated = mock(EmployeeDS.class);
         when(converterEmployeeToEmployeeDS.convert(employee)).thenReturn(outputClientCall);
