@@ -1,11 +1,11 @@
 package com.ust.calc.calculadora.api.services.impl;
 
+import com.ust.calc.calculadora.services.converters.EmployeeDSToEmployeeConverter;
+import com.ust.calc.calculadora.services.converters.EmployeeToEmployeeDSConverter;
 import org.springframework.stereotype.Service;
 
 import com.ust.calc.calculadora.api.resources.Employee;
 import com.ust.calc.calculadora.api.services.IEmployeeUpdateService;
-import com.ust.calc.calculadora.api.services.converters.EmployeeDSToEmployeeConverter;
-import com.ust.calc.calculadora.api.services.converters.EmployeeToEmployeeDSConverter;
 import com.ust.calc.calculadora.clients.entity.EmployeeDS;
 import com.ust.calc.calculadora.clients.integration.IntegrationDSClientUpdate;
 
