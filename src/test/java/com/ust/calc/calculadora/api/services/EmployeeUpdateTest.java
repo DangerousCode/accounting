@@ -1,6 +1,9 @@
 package com.ust.calc.calculadora.api.services;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import com.ust.calc.calculadora.services.converters.EmployeeDSToEmployeeConverter;
@@ -9,7 +12,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import com.ust.calc.calculadora.api.resources.Employee;
@@ -22,9 +24,6 @@ import com.ust.calc.calculadora.clients.integration.IntegrationDSClientUpdate;
 public class EmployeeUpdateTest {
 	
 	private IEmployeeUpdateService employeeUpdateService;
-	
-	@Mock
-	private Employee employee;
 	
 	@Mock
 	private IntegrationDSClientUpdate integrationDSClientUpdate;
@@ -45,11 +44,17 @@ public class EmployeeUpdateTest {
 	
 	@Test
 	public void testEmployeeUpdate() {
-		final EmployeeDS outputClientCall = new EmployeeDS();
-		when(integrationDSClientUpdate.employeeUpdate(Mockito.any())).thenReturn(outputClientCall);
-        when(converterEmployeeToEmployeeDS.convert(Mockito.any())).thenReturn(new EmployeeDS());
-        when(converterEmployeeDSToEmployee.convert(Mockito.any())).thenReturn(new Employee());
+		
+		Employee employee = mock(Employee.class);
+		EmployeeDS outputClientCall = mock( EmployeeDS.class);
+		EmployeeDS employeeUpdated = mock(EmployeeDS.class);
+        when(converterEmployeeToEmployeeDS.convert(employee)).thenReturn(outputClientCall);
+        when(integrationDSClientUpdate.employeeUpdate(outputClientCall)).thenReturn(employeeUpdated);
+        when(converterEmployeeDSToEmployee.convert(employeeUpdated)).thenReturn(mock(Employee.class));
         Employee outputService = employeeUpdateService.updateEmployee(employee);
+        verify(converterEmployeeToEmployeeDS, times(1)).convert(employee);
+        verify(integrationDSClientUpdate, times(1)).employeeUpdate(outputClientCall);
+        verify(converterEmployeeDSToEmployee, times(1)).convert(employeeUpdated);
         assertThat(outputService).isNotNull();
 	}
 
