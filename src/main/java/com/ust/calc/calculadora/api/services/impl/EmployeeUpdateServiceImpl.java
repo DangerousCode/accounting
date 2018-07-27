@@ -20,12 +20,10 @@ public class EmployeeUpdateServiceImpl implements IEmployeeUpdateService{
 	private final EmployeeDSToEmployeeConverter converterEmployeeDSToEmployee;
 	
 	@Override
-	public Employee updateEmployee(Employee employee) {
+	public Employee updateEmployee(final Employee employee) {
 		EmployeeDS employeeDS = converterEmployeeToEmployeeDS.convert(employee);
-		
-		employeeDS = integrationDSClientUpdate.employeeUpdate(employeeDS);
-		
-		return converterEmployeeDSToEmployee.convert(employeeDS);
+		EmployeeDS employeeUpdated = integrationDSClientUpdate.employeeUpdate(employeeDS);
+		return converterEmployeeDSToEmployee.convert(employeeUpdated);
 	}
 	
 

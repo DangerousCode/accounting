@@ -39,7 +39,7 @@ public class EmployeeDetailQueryServiceTest {
     @Test
     public void testDetailsByNIF() { 
     	final Employee outputService = new Employee();
-    	when(dataSourceClient.getEmployeeDetailsByNIF(Mockito.anyString())).thenReturn(Data.builder().build());
+    	when(dataSourceClient.getEmployeeDetailsByNIF(Mockito.anyString())).thenReturn(new Data());
     	when(converterEmployeeDSToEmployee.convert(Mockito.any())).thenReturn(outputService);
     	employeeDetailQueryService.getEmployeeDetailsByNIF("83479509F");
         assertThat(outputService).isNotNull();
@@ -57,6 +57,6 @@ public class EmployeeDetailQueryServiceTest {
     	when(converterEmployeeDSToEmployee.convert(Mockito.any())).thenReturn(new Employee());
     	employeeDetailQueryService.getEmployeeDetailsByName("alotes");
         assertThat(outputService).isNotNull();
-    }
+    }    
 
 }
