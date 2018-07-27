@@ -6,7 +6,7 @@
 
     <groupId>com.ust.calc</groupId>
     <artifactId>calculadora</artifactId>
-    <version>0.6.0-SNAPSHOT</version>
+    <version>0.6.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
 	<name>calculadora</name>
@@ -63,6 +63,12 @@
 		<dependency>
 			<groupId>org.springframework.ws</groupId>
 			<artifactId>spring-ws-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ust.calc</groupId>
+			<artifactId>DataSourceStubWS</artifactId>
+			<version>0.1.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 
@@ -153,31 +159,7 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>
-			<!-- tag::wsdl[] -->
-			<!--<plugin>
-				<groupId>org.jvnet.jaxb2.maven2</groupId>
-				<artifactId>maven-jaxb2-plugin</artifactId>
-				<version>0.13.2</version>
-				<executions>
-					<execution>
-					    <phase>clean</phase>
-					    <goals>
-							<goal>generate</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<schemaLanguage>WSDL</schemaLanguage>
-					<generatePackage>com.ust.calc.calculadora.wsdlstub</generatePackage>
-					<generateDirectory>${project.basedir}/src/main/java</generateDirectory>
-					<schemaDirectory>${project.basedir}/src/main/resources/wsdl</schemaDirectory>
-					<schemaIncludes>
-						<include>*.wsdl</include>
-					</schemaIncludes>
-				</configuration>
-			</plugin>-->
-			<!-- end::wsdl[] -->
+			</plugin>			
 		</plugins>
 	</build>
 </project>
