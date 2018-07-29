@@ -12,16 +12,10 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class DataSourceWSClientUpdate {
-	
-	//WebServiceClient
+
 	private final DataOperationPortImplService service;
 	
 	public Data dataUpdate(Data data){
-
-        /*URL wsdlUrl = new URL("http://localhost:8080/datasource-ws/data?WSDL");
-        QName qname = new QName("http://service.ws.sample/", "DataOperationPortImplService");
-        Service service = Service.create(wsdlUrl, qname);
-        DataOperation dataOperation = service.getPort(DataOperation.class);*/
 		
 		DataOperation dataOperation = service.getDataOperationPortImplPort();
         

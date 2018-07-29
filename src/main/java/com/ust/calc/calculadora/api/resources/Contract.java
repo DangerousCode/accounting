@@ -19,6 +19,8 @@ public class Contract {
 	private String startDate;
 	@NotNull(message="The salary is required")
 	private String salary;
+	@NotNull(message="The currency is required")
+	private String currency;
 	private String endDate;
 	@NotNull(message="The insurance number is required")
 	private String insuranceNumber;

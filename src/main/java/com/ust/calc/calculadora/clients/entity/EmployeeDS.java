@@ -15,6 +15,7 @@ public class EmployeeDS {
     private String name;
     private String email;
     private String salary;
+    private String currency;
     private String dni;
     private String fecnac;
     private String direccion;

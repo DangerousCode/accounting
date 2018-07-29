@@ -13,7 +13,7 @@ public class EmployeeToEmployeeDSConverter implements Converter<Employee, Employ
 	public EmployeeDS convert(Employee employee) {
 
 		EmployeeDS employeeDS = new EmployeeDS(employee.getId(), employee.getName(), employee.getEmail(), employee.getContract().getSalary(),
-				employee.getDni(), employee.getBirthDate().toString(), employee.getAddress(),
+				employee.getContract().getCurrency(), employee.getDni(), employee.getBirthDate().toString(), employee.getAddress(),
 				employee.getContract().getCurrentAccount(), employee.getContract().getCivilStatus(), employee.getSex(),
 				employee.getContract().getStartDate(), employee.getContract().getCategory(),
 				employee.getContract().getContractType(), employee.getContract().getInsuranceNumber(),

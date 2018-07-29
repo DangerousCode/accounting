@@ -1,5 +1,7 @@
 package com.ust.calc.calculadora.api.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -28,9 +30,9 @@ public class EmployeeUpdateController implements EmployeeUpdateAPI {
 	@ApiOperation(value = "update a employee resource", response = Employee.class, nickname = "UpdateEmployee", httpMethod = "PUT", produces = MediaType.APPLICATION_JSON_VALUE, tags= {"employee"})
 	@ApiResponses({ @ApiResponse(code = 200, message = "update a employee resource") })
 	@PutMapping(path = "/employee")
-	public ResponseEntity<Employee> updateEmployee(@RequestBody Employee employee) {
+	public ResponseEntity<Employee> updateEmployee(@Valid @RequestBody Employee employee) {
 		
-		return new ResponseEntity<Employee>(iEmployeeUpdateService.updateEmployee(employee), HttpStatus.OK);
+		return ResponseEntity.ok(iEmployeeUpdateService.updateEmployee(employee));
 		
 	}
 	
