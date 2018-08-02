@@ -27,6 +27,8 @@ public class Employee {
     private String name;
 
     private String address;
+    @NotNull(message="The refCatastro must not contain blank characters")
+    private String refCatastro;
 	
 	@NotNull(message="The e-mail is required")
 	@Pattern(regexp=".+@.+\\.[a-z]+", message="E-mail format not valid")

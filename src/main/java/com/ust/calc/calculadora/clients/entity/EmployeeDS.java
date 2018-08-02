@@ -19,6 +19,7 @@ public class EmployeeDS {
     private String dni;
     private String fecnac;
     private String direccion;
+    private String refCatastro;
     private String ctacte;
     private String estadocivil;
     private String sexo;

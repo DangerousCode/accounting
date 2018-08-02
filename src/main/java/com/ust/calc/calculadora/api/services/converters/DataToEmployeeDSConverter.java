@@ -13,7 +13,7 @@ public class DataToEmployeeDSConverter implements Converter<Data, EmployeeDS> {
 	public EmployeeDS convert(Data data) {
 		//TODO falta añadir al data el campo currency
 		EmployeeDS employeeDS = new EmployeeDS(data.getId(), data.getName(), data.getEmail(), data.getSalary(), "",
-				data.getDni(), data.getFecnac(), data.getDireccion(),
+				data.getDni(), data.getFecnac(), data.getDireccion(), data.getRefCatastro(),
 				data.getCtacte(), data.getEstadocivil(), data.getSexo(),
 				data.getFecalta(), data.getCategoria(),
 				data.getTipocontrato(), data.getNsegsoc(),

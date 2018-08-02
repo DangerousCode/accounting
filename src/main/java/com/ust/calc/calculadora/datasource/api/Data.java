@@ -73,6 +73,7 @@ public class Data {
     protected String dni;
     protected String fecnac;
     protected String direccion;
+    protected String refCatastro;
     protected String ctacte;
     protected String estadocivil;
     protected String sexo;
@@ -249,6 +250,30 @@ public class Data {
      */
     public void setDireccion(String value) {
         this.direccion = value;
+    }
+    
+    /**
+     * Obtiene el valor de la propiedad refCatastro.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getRefCatastro() {
+    	return refCatastro;
+    }
+    
+    /**
+     * Define el valor de la propiedad refCatastro.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setRefCatastro(String value) {
+    	this.refCatastro = value;
     }
 
     /**

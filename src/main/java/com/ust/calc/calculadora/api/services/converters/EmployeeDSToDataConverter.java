@@ -13,7 +13,7 @@ public class EmployeeDSToDataConverter implements Converter<EmployeeDS,Data>{
 	public Data convert(EmployeeDS employeeDS) {
 		
 		Data employeeData = new Data(employeeDS.getId(), employeeDS.getName(), employeeDS.getEmail(), employeeDS.getSalary(), employeeDS.getDni(),
-				employeeDS.getFecnac(), employeeDS.getDireccion(), employeeDS.getCtacte(), employeeDS.getEstadocivil(), employeeDS.getSexo(), 
+				employeeDS.getFecnac(), employeeDS.getDireccion(), employeeDS.getRefCatastro(), employeeDS.getCtacte(), employeeDS.getEstadocivil(), employeeDS.getSexo(), 
 				employeeDS.getFecalta(), employeeDS.getCategoria(), employeeDS.getTipocontrato(), employeeDS.getNsegsoc(), employeeDS.getNumtel(), employeeDS.getFecbaja());
 		
 		return employeeData;

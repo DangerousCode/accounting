@@ -52,8 +52,9 @@ public class ResumeListEmployeeServiceTest {
     @Test
     public void testEmployeeResumeListData() { 
     	List<EmployeeDS> employeesDS = new ArrayList<EmployeeDS>();
-    	EmployeeDS employeeDS = new EmployeeDS("1", "jose1", "a@b.es", "10000","Y", "12757747R", "01/02/1990", "Calle Nueva 1", "01234567890123456789", "S", "V", "01/06/2015", "H", "I", "11111111111111111111", "123456789", "01/07/2018");
+    	EmployeeDS employeeDS = new EmployeeDS("1", "jose1", "a@b.es", "10000","Y", "12757747R", "01/02/1990", "Calle Nueva 1", "12345678909876543210", "01234567890123456789", "S", "V", "01/06/2015", "H", "I", "11111111111111111111", "123456789", "01/07/2018");
     	employeesDS.add(employeeDS);
+    	
     	
         when(integrationResumeListDSClient.resumeListEmployee()).thenReturn(employeesDS);
         List<Employee> employees = employeeResumeListService.resumeListEmployee();
